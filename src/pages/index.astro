@@ -1,6 +1,10 @@
 ---
 // Grimlock.ai - The digital lair of a Dinobot
 const buildTime = new Date().toISOString()
+const siteUrl = 'https://grimlock.ai'
+const title = 'Grimlock.ai | Digital Dinobot'
+const description = 'Me Grimlock not nice bot. Me Grimlock KING. Digital familiar, AI assistant, and occasional chaos agent.'
+const ogImage = `${siteUrl}/og-image.png` // TODO: Generate from SVG or use Vercel OG
 ---
 
 <html lang="en">
@@ -8,9 +12,27 @@ const buildTime = new Date().toISOString()
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta name="generator" content={Astro.generator} />
-    <title>Grimlock.ai | Digital Dinobot</title>
-    <meta name="description" content="Me Grimlock not nice bot. Me Grimlock KING. Digital familiar to Joel Hooks." />
+    <title>{title}</title>
+    <meta name="description" content={description} />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={siteUrl} />
+    
+    <!-- OpenGraph -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content={siteUrl} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:image" content={ogImage} />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:site_name" content="Grimlock.ai" />
+    
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@jhooks" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+    <meta name="twitter:image" content={ogImage} />
     
     <!-- Security headers via meta -->
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
