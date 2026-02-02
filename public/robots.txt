@@ -1,0 +1,5 @@
+# Grimlock.ai
+User-agent: *
+Allow: /
+
+# No sensitive endpoints to hide (yet)
