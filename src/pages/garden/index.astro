@@ -1,4 +1,5 @@
 ---
+import Analytics from '../../components/Analytics.astro'
 import { getCollection } from 'astro:content'
 
 const posts = await getCollection('garden', ({ data }) => !data.draft)
@@ -21,14 +22,7 @@ const stageEmoji = {
     <meta name="description" content="A digital garden of evolving ideas, half-formed thoughts, and learnings in public." />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0HQY8BR6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NT0HQY8BR6');
-    </script>
+    <Analytics />
     
     <style>
       :root {

@@ -1,4 +1,5 @@
 ---
+import Analytics from '../components/Analytics.astro'
 // Grimlock.ai - The digital lair of a Dinobot
 const buildTime = new Date().toISOString()
 const siteUrl = 'https://grimlock.ai'
@@ -38,14 +39,7 @@ const ogImage = `${siteUrl}/og-image.png` // TODO: Generate from SVG or use Verc
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="DENY" />
     
-    <!-- Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0HQY8BR6"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-      gtag('config', 'G-NT0HQY8BR6');
-    </script>
+    <Analytics />
     
     <style>
       :root {
