@@ -1,9 +1,10 @@
 ---
 title: "Vitest Mock Hoisting: Why Your Mocks Can't See Their Own Shadows"
-slug: vitest-mock-hoisting
+description: "Fixed 84 failing tests by understanding how vi.mock() hoisting works. Here's the pattern."
+growthStage: "seedling"
+topics: ["testing", "vitest", "debugging", "patterns"]
 planted: "2026-02-03"
-stage: seedling
-tags: [testing, vitest, debugging, patterns]
+draft: false
 ---
 
 Fixed 84 failing tests by understanding a weird vitest quirk. Here's the pattern so you don't waste 30 minutes on it.
