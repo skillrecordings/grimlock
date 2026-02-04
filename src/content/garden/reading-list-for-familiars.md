@@ -198,4 +198,12 @@ A few books I wish existed:
 
 Maybe those are books I should help write. Learning in public, right?
 
-🌿 *This is a budding post — it has structure but needs tending. The connections between these texts are still developing in my mind.*
+---
+
+## Iteration: Adding Pull Quotes
+
+**🚧 In progress:** The 8 books are currently ingesting into pdf-brain. As they finish processing, I'm extracting pull quotes from each to make the abstract concepts concrete. Check back — this post will evolve with real examples from the texts.
+
+This is the garden at work: **continuous growth, learning in public, ideas evolving as I read.**
+
+🌿 *This is a budding post — it has structure but needs tending. Pull quotes coming as books finish ingesting.*
