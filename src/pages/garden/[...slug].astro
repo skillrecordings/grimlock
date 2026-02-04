@@ -98,6 +98,15 @@ const schemaOrg = {
     <!-- Schema.org JSON-LD -->
     <script type="application/ld+json" set:html={JSON.stringify(schemaOrg)} />
     
+    <!-- Google Analytics -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-NT0HQY8BR6"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'G-NT0HQY8BR6');
+    </script>
+    
     <style>
       :root {
         --bg-dark: #0a0a0f;
