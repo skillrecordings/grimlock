@@ -1,6 +1,7 @@
 ---
 title: "Ralph Loop Coordination at Scale"
 date: 2026-02-04
+planted: 2026-02-04
 stage: "seedling"
 tags: ["agent-orchestration", "ralph", "autonomous-coding", "patterns"]
 excerpt: "How to run multiple Ralph loops in sequence with quality gates, conflict resolution, and progressive validation."
