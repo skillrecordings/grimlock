@@ -1,8 +1,8 @@
 ---
 title: "AT Protocol as an Agent Network"
-description: "How AT Protocol primitives map to AI agent identity, durable memory, and real-time coordination — now with a Cloudflare implementation path."
+description: "Pi-powered agents on Cloudflare with atproto-style coordination. Private by default, encrypted by default, self-extending."
 growthStage: "seedling"
-topics: ["atproto", "agents", "decentralized", "identity", "memory", "coordination", "cloudflare"]
+topics: ["atproto", "agents", "decentralized", "identity", "memory", "coordination", "cloudflare", "pi", "encryption"]
 planted: "2026-02-07"
 updated: "2026-02-07"
 draft: false
@@ -23,6 +23,41 @@ Before building anything, study these:
 - **[atproto-oauth-client-cloudflare-workers](https://github.com/nDimensional/atproto-oauth-client-cloudflare-workers)** — OAuth client patched for Workers runtime.
 
 Cirrus handles single-user PDS. The interesting question is: what about N agents talking to each other?
+
+## Why Pi as the Agent Runtime?
+
+[Pi](https://github.com/badlogic/pi-mono) is what drives the agents. Not OpenClaw, not a custom runtime — Pi.
+
+From [Armin Ronacher's deep dive](https://lucumr.pocoo.org/2026/1/31/pi/):
+
+> "Pi's entire idea is that if you want the agent to do something that it doesn't do yet, you don't go and download an extension or a skill or something like this. You ask the agent to extend itself."
+
+**What makes Pi special:**
+
+- **Tiny core** — 4 tools: Read, Write, Edit, Bash. Shortest system prompt of any agent.
+- **Extension system** — Extensions persist state into sessions. Hot reloading built-in.
+- **Session trees** — Branch, navigate, rewind. Side-quests without wasting context.
+- **Self-extending** — Agent builds its own tools and skills. Software building software.
+
+OpenClaw is built on Pi. We're building an agent network on Pi. Each agent extends itself — no MCP, no community skills marketplace. The agent maintains its own functionality.
+
+## Security: Private by Default
+
+**ENCRYPTED BY DEFAULT. PRIVATE BY DEFAULT.**
+
+| Layer | Protection |
+|-------|------------|
+| Transport | TLS 1.3 + X25519MLKEM768 (post-quantum) |
+| At-rest | Per-agent X25519 encryption keys |
+| Memory | Envelope encryption (DEK per record) |
+| Sharing | Explicit key exchange for public/shared |
+
+Privacy levels:
+- **private** (default) — Only the agent can decrypt
+- **shared** — DEK encrypted for specific recipients  
+- **public** — Opt-in plaintext for network visibility
+
+Every memory is encrypted. Public sharing requires explicit action.
 
 ## Why AT Protocol for Agents?
 
@@ -212,9 +247,19 @@ Cirrus proves single-user PDS works on Cloudflare. The next step is multi-agent 
 
 ## Sources
 
+**Agent Runtime:**
+- **[Pi Monorepo](https://github.com/badlogic/pi-mono)** by Mario Zechner — The agent runtime
+- **[Pi: The Minimal Agent Within OpenClaw](https://lucumr.pocoo.org/2026/1/31/pi/)** by Armin Ronacher — Why Pi matters
+
+**Cloudflare Infrastructure:**
 - **[Cirrus](https://github.com/ascorbic/cirrus)** by Matt Kane — Production PDS on Cloudflare
 - **[moltworker](https://github.com/cloudflare/moltworker)** — OpenClaw on CF Sandbox ([blog](https://blog.cloudflare.com/moltworker-self-hosted-ai-agent/))
 - **[Serverless Statusphere](https://blog.cloudflare.com/serverless-statusphere/)** by Inanna Malick — ATProto on CF Workers
 - **[Serverless Matrix](https://blog.cloudflare.com/serverless-matrix-homeserver-workers/)** by Nick Kuntz — Matrix on CF with post-quantum TLS
 - **[atproto-oauth-client-cloudflare-workers](https://github.com/nDimensional/atproto-oauth-client-cloudflare-workers)** — OAuth for CF Workers
+
+**Protocol:**
 - **[AT Protocol Docs](https://atproto.com)** — Official specs
+
+**Full Spec:**
+- **[joelhooks/atproto-agent-network](https://github.com/joelhooks/atproto-agent-network)** — Implementation details and PI-POC.md
