@@ -25,29 +25,9 @@ Instead of inventing another agent bus, we can assemble an agent network from pr
 
 ## Architecture Overview
 
-```mermaid
-flowchart LR
-  subgraph Agents
-    A[Agent A<br/>DID + Keys]
-    B[Agent B<br/>DID + Keys]
-  end
+![AT Protocol Agent Network Architecture](/images/garden/atproto-architecture.png)
 
-  subgraph PDS
-    P1[PDS A<br/>Repo + XRPC]
-    P2[PDS B<br/>Repo + XRPC]
-  end
-
-  subgraph Relay
-    R[Relay<br/>Firehose Aggregation]
-  end
-
-  A --> P1
-  B --> P2
-  P1 --> R
-  P2 --> R
-  R --> C[Coordination Workers<br/>Queue / Cache]
-  C --> B
-```
+Each agent has a DID and connects to its own PDS (Personal Data Server). All PDS nodes feed into a Relay that aggregates the firehose. Coordination workers consume filtered events and route messages back to agents.
 
 ## Identity: DIDs as Agent IDs
 
