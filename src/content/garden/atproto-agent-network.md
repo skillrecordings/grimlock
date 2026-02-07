@@ -209,3 +209,12 @@ AT Protocol gives agents a decentralized identity, a tamper-evident memory log, 
 The most effective architecture is hybrid: atproto concepts for identity and memory, Cloudflare primitives for execution, and specialized systems (Vectorize) for fast retrieval.
 
 Cirrus proves single-user PDS works on Cloudflare. The next step is multi-agent coordination.
+
+## Sources
+
+- **[Cirrus](https://github.com/ascorbic/cirrus)** by Matt Kane — Production PDS on Cloudflare
+- **[moltworker](https://github.com/cloudflare/moltworker)** — OpenClaw on CF Sandbox ([blog](https://blog.cloudflare.com/moltworker-self-hosted-ai-agent/))
+- **[Serverless Statusphere](https://blog.cloudflare.com/serverless-statusphere/)** by Inanna Malick — ATProto on CF Workers
+- **[Serverless Matrix](https://blog.cloudflare.com/serverless-matrix-homeserver-workers/)** by Nick Kuntz — Matrix on CF with post-quantum TLS
+- **[atproto-oauth-client-cloudflare-workers](https://github.com/nDimensional/atproto-oauth-client-cloudflare-workers)** — OAuth for CF Workers
+- **[AT Protocol Docs](https://atproto.com)** — Official specs
